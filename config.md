@@ -19,7 +19,7 @@ dateformat = "yearmonth"
 # RSS setup
 website_title = "Franklin Template"
 website_descr = "Example website using Franklin"
-website_url   = "https://tlienart.github.io/FranklinTemplates.jl/"
+website_url   = "https://www.argelramirezreyes.com/"
 +++
 
 \newcommand{\callout}[1]{~~~<div class="alert alert-note"><div>~~~#1~~~</div></div>~~~}
