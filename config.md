@@ -6,7 +6,7 @@ jobtitle = "Head of Research"
 mintoclevel = 2
 ignore = ["node_modules/", "franklin", "franklin.pub"]
 
-@def prepath = ""
+@def prepath = 
 
 hasplotly = false
 hasmermaid = false
