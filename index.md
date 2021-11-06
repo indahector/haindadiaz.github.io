@@ -11,7 +11,7 @@
 
 \img{"/assets/img/person.jpg", class="avatar avatar-circle", alt="Nelson Bighetti"}
 \portrait{
-  name="Nelson Bighetti",
+  name="Argel Ramírez Reyes",
   job="Professor of Artificial Intelligence",
   link="https://www.stanford.edu/",
   linkname="Stanford University",
