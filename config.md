@@ -3,7 +3,7 @@ author = "Nelson Bighetti"
 shortauthor = "N. Bighetti"
 jobtitle = "Head of Research"
 
-@def prepath = ""
+prepath = ""
 
 mintoclevel = 2
 ignore = ["node_modules/", "franklin", "franklin.pub"]
