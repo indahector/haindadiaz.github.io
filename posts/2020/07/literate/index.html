@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="author" content="Nelson Bighetti">
+  <meta name="description" content="Head of Research">
+
+  <meta name="theme-color" content="#2962ff">
+
+  <link
+  rel=preconnect
+  href="https://fonts.gstatic.com"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+  crossorigin=anonymous>
+
+<!-- locally served -->
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+
+<link rel=stylesheet href="/css/extra.css">
+
+<!-- highlight + katex + plotly -->
+<link rel=stylesheet href="/libs/highlight/github.min.css">
+
+  <link rel="stylesheet" href="/libs/katex/katex.min.css">
+
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+
+   <title>Using Literate</title>  
+</head>
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+  <div class=container>
+    <!-- Main name -->
+    <div class="d-none d-lg-inline-flex">
+      <a class=navbar-brand href="/">N. Bighetti</a>
+    </div>
+    <!-- Button for narrow mode -->
+    <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    <!-- Main name for mobile mode -->
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class=navbar-brand href="/">N. Bighetti</a>
+    </div>
+    <!-- Menu items -->
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+      <ul class="navbar-nav d-md-inline-flex">
+        <li class=nav-item><a class=nav-link href="/#posts" data-target=#posts><span>Recent posts</span></a></li>
+        <li class=nav-item><a class=nav-link href="/posts/"><span>Blog</span></a></li>
+        <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li>
+        <li class=nav-item><a class=nav-link href="/research/"><span>Research</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <span class="js-widget-page d-none"></span>
+
+  
+    <article class=article>
+      <div class="article-container pt-3">
+        <h1>Using Literate</h1>
+      </div>
+      
+
+      <div class="article-container">
+        <div class="article-style">
+  
+<div class="franklin-content">
+<p><a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a> is a convenient package that allows you to write scripts in Julia and convert them to markdown pages or Jupyter notebooks. They work seamlessly with Franklin; for instance here the rest of the page is included from <code>_literate/example1.jl</code>, written in Literate format and included using</p>
+<pre><code class="language-plaintext">\literate&#123;example1.jl&#125;</code></pre>
+<p>&#40;Any relative path given to <code>\literate</code> that doesn&#39;t start with <code>/</code> is assumed to correspond to a file in the <code>_literate</code> folder.&#41;</p>
+<h2 id="literate_part"><a href="#literate_part" class="header-anchor">Literate part</a></h2>
+<p>Head to the <a href="https://github.com/fredrikekre/Literate.jl">Literate.jl</a> repo for more information about the syntax but, overall, it&#39;s about writing a Julia script with lots of comments.</p>
+<p>You can also convert a Jupyter notebook into a <code>.jl</code> script using Literate and include that with Franklin to get a webpage that reproduces the notebook.</p>
+<p>Julia code blocks will be executed and their output shown &#40;unless you add a <code>;</code> at the end of the last line of the code block.</p>
+<p>Let&#39;s start with something very simple</p>
+<pre><code class="language-julia">x &#61; 5</code></pre><pre><code class="plaintext code-output">5</code></pre>
+<p>And we can keep going with simple things</p>
+<pre><code class="language-julia">foreach&#40;println, &#40;&#39;*&#39;^i for i in 1:x&#41;&#41;</code></pre><pre><code class="plaintext code-output">*
+**
+***
+****
+*****
+</code></pre>
+<p>You can use packages of course, just make sure your website folder has a <code>Project.toml</code> with all your dependencies listed; also if you use the GitHub deployment path, you will need to make sure the deploy script installs the right package &#40;head to the <a href="https://franklinjl.org">docs</a> for more information&#41;.</p>
+<pre><code class="language-julia">using PyPlot
+
+figure&#40;figsize&#61;&#40;8, 6&#41;&#41;
+x &#61; range&#40;0, 10, length&#61;250&#41;
+y &#61; @. sin&#40;3x&#41; * exp&#40;-x/5&#41; &#43; log&#40;x&#41; * cos&#40;x&#41; / 10
+plot&#40;x, y&#41;</code></pre>
+<p>in the comments the markdown is treated as Franklin markdown so you can do things like include images inside div blocks etc:</p>
+<div class="small-img"><img src="/assets/posts/2020/07/literate/code/output/example1.svg" alt="Simple example"></div>
+<p>And include maths of course</p>
+\[ \exp(i\pi) + 1 = 0 \]
+
+
+</div> <!-- article style -->
+
+
+<div class="container">
+  <footer class="site-footer">
+    <p class="powered-by">Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and the <a href="https://julialang.org" target="_blank" rel="noopener">Julia Programming Language</a>.
+
+      <span class="float-right" aria-hidden="true">
+        <a href="#" class="back-to-top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+    </p>
+  </footer>
+</div>
+</div>
+  </div> <!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+     <script src="/libs/katex/katex.min.js"></script>
+<script src="/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
+     
+     <script src="/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+
+  <script src="/libs/academic/academic.min.js"></script>
+
+  </body>
+</html>
