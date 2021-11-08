@@ -1,4 +1,4 @@
-@def title = "Academic template"
+@def title = "Argel Ramírez Reyes"
 
 <!-- -----------------
      BIOGRAPHY SECTION
@@ -9,16 +9,17 @@
 <!-- LEFT COLUMN -->
 @@col-12,col-lg-4,profile
 
-\img{"/assets/img/person.jpg", class="avatar avatar-circle", alt="Nelson Bighetti"}
+\img{"/assets/img/ArgelRamirezReyes.jpg", class="avatar avatar-circle", alt="Argel Ramírez Reyes"}
 \portrait{
   name="Argel Ramírez Reyes",
-  job="Professor of Artificial Intelligence",
-  link="https://www.stanford.edu/",
-  linkname="Stanford University",
-  twitter="https://twitter.com/GeorgeCushen",
-  gscholar="https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ",
-  github="https://github.com/gcushen",
-  linkedin="https://www.linkedin.com/"
+  job="PhD Candidate in Atmospheric Science",
+  link="https://www.ucdavis.edu/",
+  linkname="University of California, Davis",
+  email="argel.ramirez@gmail.com",
+  twitter="https://twitter.com/aramirezreyes",
+  gscholar="https://scholar.google.com/citations?user=JkcQycYAAAAJ&hl=es",
+  github="https://github.com/aramirezreyes",
+  linkedin="https://www.linkedin.com/in/argelramirezreyes/"
 }
 @@ <!-- end of column -->
 
@@ -26,18 +27,22 @@
 @@col-12,col-lg-8
 
 \begin{biography}{resume="/assets/demo_resume.pdf"}
-  Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops
-  self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+ I’m a PhD Candidate in the Atmospheric Sciences program at UC Davis, at [Dr Da Yang’s Climate group](https://www.yang-climate-group.org/). Among other things I am interested in tropical cyclones (my current research focus) in our changing climate, as well as in tropical dynamics. I am working towards understanding the essential elements in the genesis of tropical cyclones.
 
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+Originally, I studied Physics at the National University of Mexico, and then I went to the University of Lille 1, where I studied a master’s degree High Performance Computing and Simulation, specialized in Scientific computing.
+
+ I also love free software and high performance computing. My favorite tool nowadays is the Julia Language. My favorite Linux distribution is Debian, although currently I am not using it in my primary computer.
+ 
+ My PhD Studies are mainly funded by the People of México through a CONACYT – UCMexus fellowship. So much to be grateful for!
+ 
 \end{biography}
 
 \shortcv{
-  interests=["Artificial Intelligence", "Computational Linguistics", "Information Retrieval"],
+  interests=["Fluid Dynamics", "Tropical cyclones", "Free software", "Supercomputing", "Climate"],
   education=[
-    ("PhD in Artificial Intelligence, 2012", "Stanford University"),
-    ("MEng in Artificial Intelligence, 2009", "Massachusetts Institute of Technology"),
-    ("BSc in Artificial Intelligence, 2008", "Massachusetts Institute of Technology")]
+    ("PhD in Atmospheric Science, in progress.", "University of California, Davis"),
+    ("Masters in Scientific Computing, 2017", "Université de Lille 1, Sciences et Technologies"),
+    ("BSc in Physics, 2016", "Universidad Nacional Autónoma de México")]
 }
 
 @@ <!-- end of column -->
@@ -51,8 +56,7 @@
 
 \sectionheading{"Skills", class="col-md-12"}
 
-\skill{"Julia", "90%", img="/assets/img/julia-dots.svg"}
-\skill{"Machine Learning", "100%", fa="chart-line"}
+\skill{"Julia", "90%", img="/assets/img/julia-dots-colors.svg"}
 \skill{"Photography", "10%", fa="camera-retro"}
 
 \end{section}

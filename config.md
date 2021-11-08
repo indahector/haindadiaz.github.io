@@ -1,7 +1,7 @@
 +++
-author = "Nelson Bighetti"
-shortauthor = "N. Bighetti"
-jobtitle = "Head of Research"
+author = "Argel Ramírez Reyes"
+shortauthor = "A. Ramírez Reyes"
+jobtitle = "PhD Candidate"
 
 prepath = ""
 
