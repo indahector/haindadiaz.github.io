@@ -26,7 +26,7 @@
 <!-- RIGHT COLUMN -->
 @@col-12,col-lg-8
 
-\begin{biography}{resume="/assets/demo_resume.pdf"}
+\begin{biography}{resume="/assets/ARR_cv.pdf"}
  I’m a PhD Candidate in the Atmospheric Sciences program at UC Davis, at [Dr Da Yang’s Climate group](https://www.yang-climate-group.org/). Among other things I am interested in tropical cyclones (my current research focus) in our changing climate, as well as in tropical dynamics. I am working towards understanding the essential elements in the genesis of tropical cyclones.
 
 Originally, I studied Physics at the National University of Mexico, and then I went to the University of Lille 1, where I studied a master’s degree High Performance Computing and Simulation, specialized in Scientific computing.
@@ -66,92 +66,93 @@ Originally, I studied Physics at the National University of Mexico, and then I w
      EXPERIENCE SECTION
      ------------------ -->
 
-\begin{section}{name="experience"}
+<!-- \begin{section}{name="experience"} -->
 
-\sectionheading{"Experience", class="col-12 col-lg-4"}
+<!-- \sectionheading{"Experience", class="col-12 col-lg-4"} -->
 
-@@col-12,col-lg-8
+<!-- @@col-12,col-lg-8 -->
 
-\experience{
-  title="CEO",
-  company="GenCoin",
-  descr="""
-    Responsibilities include:
-    * Analysing
-    * Modelling
-    * Deploying
-    """,
-  from="Jan 2017",
-  to="Present",
-  location="California",
-  active=true
-  }
-\experience{
-  title="Professor",
-  company="University X",
-  from="Jan 2016",
-  to="Dec 2016",
-  last=true,
-  location="California",
-  descr="Taught electronic engineering and researched semiconductor physics."
-  }
+<!-- \experience{ -->
+<!--   title="CEO", -->
+<!--   company="GenCoin", -->
+<!--   descr=""" -->
+<!--     Responsibilities include: -->
+<!--     * Analysing -->
+<!--     * Modelling -->
+<!--     * Deploying -->
+<!--     """, -->
+<!--   from="Jan 2017", -->
+<!--   to="Present", -->
+<!--   location="California", -->
+<!--   active=true -->
+<!--   } -->
+<!-- \experience{ -->
+<!--   title="Professor", -->
+<!--   company="University X", -->
+<!--   from="Jan 2016", -->
+<!--   to="Dec 2016", -->
+<!--   last=true, -->
+<!--   location="California", -->
+<!--   descr="Taught electronic engineering and researched semiconductor physics." -->
+<!--   } -->
 
-@@
+<!-- @@ -->
 
-\end{section}
+<!-- \end{section} -->
 
 <!-- -----------------------
      ACCOMPLISHMENTS SECTION
      ----------------------- -->
 
-\begin{section}{name="accomplishments"}
 
-\sectionheading{"Accomplish­ments", class="col-12 col-lg-4"}
+<!-- \begin{section}{name="accomplishments"} -->
 
-@@col-12,col-lg-8
+<!-- \sectionheading{"Accomplish­ments", class="col-12 col-lg-4"} -->
 
-\certificate{
-  title="Neural Networks and Deep Learning",
-  meta="Coursera",
-  metalink="https://www.coursera.org",
-  date="Oct 2018",
-  certlink="https://www.coursera.org"
-  }
-\certificate{
-  title="Blockchain Fundamentals",
-  descr="Formulated informed **blockchain** models, hypotheses, and use cases.",
-  meta="Coursera",
-  metalink="https://www.edx.org",
-  date="Mar 2018",
-  certlink="https://www.edx.org"
-  }
-\certificate{
-  title="Object-Oriented Programming in R: S3 and R6 Course",
-  meta="DataCamp",
-  metalink="https://www.datacamp.com",
-  date="Jul 2017 – Dec 2017",
-  certlink="https://www.datacamp.com"
-}
+<!-- @@col-12,col-lg-8 -->
 
-@@
+<!-- \certificate{ -->
+<!--   title="Neural Networks and Deep Learning", -->
+<!--   meta="Coursera", -->
+<!--   metalink="https://www.coursera.org", -->
+<!--   date="Oct 2018", -->
+<!--   certlink="https://www.coursera.org" -->
+<!--   } -->
+<!-- \certificate{ -->
+<!--   title="Blockchain Fundamentals", -->
+<!--   descr="Formulated informed **blockchain** models, hypotheses, and use cases.", -->
+<!--   meta="Coursera", -->
+<!--   metalink="https://www.edx.org", -->
+<!--   date="Mar 2018", -->
+<!--   certlink="https://www.edx.org" -->
+<!--   } -->
+<!-- \certificate{ -->
+<!--   title="Object-Oriented Programming in R: S3 and R6 Course", -->
+<!--   meta="DataCamp", -->
+<!--   metalink="https://www.datacamp.com", -->
+<!--   date="Jul 2017 – Dec 2017", -->
+<!--   certlink="https://www.datacamp.com" -->
+<!-- } -->
 
-\end{section}
+<!-- @@ -->
+
+<!-- \end{section} -->
 
 <!-- --------------------
      RECENT POSTS SECTION
      -------------------- -->
 
-\begin{section}{name="posts", class="wg-pages"}
+<!-- \begin{section}{name="posts", class="wg-pages"} -->
 
-\sectionheading{"Recent Posts", class="col-12 col-lg-4"}
+<!-- \sectionheading{"Recent Posts", class="col-12 col-lg-4"} -->
 
-@@col-12,col-lg-8
+<!-- @@col-12,col-lg-8 -->
 
-{{recentposts 3}}
+<!-- {{recentposts 3}} -->
 
-@@
+<!-- @@ -->
 
-\end{section}
+<!-- \end{section} -->
 
 <!-- -----------------
      PORTFOLIO SECTION XXX
