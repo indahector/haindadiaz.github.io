@@ -15,6 +15,7 @@
   job="PhD Candidate in Atmospheric Science",
   link="https://www.ucdavis.edu/",
   linkname="University of California, Davis",
+  resume="/assets/ARR_cv.pdf",
   email="argel.ramirez@gmail.com",
   twitter="https://twitter.com/aramirezreyes",
   gscholar="https://scholar.google.com/citations?user=JkcQycYAAAAJ&hl=es",
