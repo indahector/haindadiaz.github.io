@@ -27,14 +27,8 @@
 <!-- RIGHT COLUMN -->
 @@col-12,col-lg-8
 
-\begin{biography}{resume="/assets/ARR_cv.pdf"}
- I’m a PhD Candidate in the Atmospheric Sciences program at UC Davis, at [Dr Da Yang’s Climate group](https://www.yang-climate-group.org/). Among other things I am interested in tropical cyclones (my current research focus) in our changing climate, as well as in tropical dynamics. I am working towards understanding the essential elements in the genesis of tropical cyclones.
-
-Originally, I studied Physics at the National University of Mexico, and then I went to the University of Lille 1, where I studied a master’s degree High Performance Computing and Simulation, specialized in Scientific computing.
-
- I also love free software and high performance computing. My favorite tool nowadays is the Julia Language. My favorite Linux distribution is Debian, although currently I am not using it in my primary computer.
- 
- My PhD Studies are mainly funded by the People of México through a CONACYT – UCMexus fellowship. So much to be grateful for!
+\begin{biography}{}
+ I’m a PhD Candidate in the Atmospheric Sciences program at UC Davis, at [Dr Da Yang’s Climate group](https://www.yang-climate-group.org/). Among other things I am interested in tropical cyclones (my current research focus) in our changing climate, tropical dynamics and open software. I am working towards understanding the essential elements in the genesis of tropical cyclones. My PhD Studies are mainly funded by the People of México through a CONACYT – UCMexus fellowship.
  
 \end{biography}
 
@@ -61,7 +55,45 @@ Originally, I studied Physics at the National University of Mexico, and then I w
 \skill{"Photography", "10%", fa="camera-retro"}
 
 \end{section}
+ 
+ 
+ <!-- ------------------
+     EXPERIENCE SECTION
+     ------------------ -->
 
+<!-- \begin{section}{name="news"} -->
+
+<!-- \sectionheading{"News", class="col-12 col-lg-4"} -->
+
+<!-- @@col-12,col-lg-8 -->
+
+<!-- \experience{ -->
+<!--   title="CEO", -->
+<!--   company="GenCoin", -->
+<!--   descr=""" -->
+<!--     Responsibilities include: -->
+<!--     * Analysing -->
+<!--     * Modelling -->
+<!--     * Deploying -->
+<!--     """, -->
+<!--   from="Jan 2017", -->
+<!--   to="Present", -->
+<!--   location="California", -->
+<!--   active=true -->
+<!--   } -->
+<!-- \experience{ -->
+<!--   title="Professor", -->
+<!--   company="University X", -->
+<!--   from="Jan 2016", -->
+<!--   to="Dec 2016", -->
+<!--   last=true, -->
+<!--   location="California", -->
+<!--   descr="Taught electronic engineering and researched semiconductor physics." -->
+<!--   } -->
+
+<!-- @@ -->
+
+<!-- \end{section} -->
 
 <!-- ------------------
      EXPERIENCE SECTION

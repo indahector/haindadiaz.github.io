@@ -19,8 +19,8 @@ hasmermaid = false
 # - `"post"`: posts/name-of-post.md
 dateformat = "yearmonth"
 # RSS setup
-website_title = "Franklin Template"
-website_descr = "Example website using Franklin"
+website_title = "Hurricanes, atmospheres and open software!"
+website_descr = "Personal website of Argel Ram\'irez Reyes"
 website_url   = "https://www.argelramirezreyes.com/"
 +++
 
