@@ -33,7 +33,7 @@ end
                      twitter="", gscholar="", github="", linkedin="", email="")
     io = IOBuffer()
     write(io, html("<div class=portrait-title>"))
-    isempty(name) || write(io, html("<h2>$name</h2>"))
+    isempty(name) || write(io, html("<h4>$name</h4>"))
     isempty(job) || write(io, html("<h3>$job</h3>"))
     if !isempty(link)
         if isempty(linkname)
@@ -297,6 +297,9 @@ function hfun_allposts()
     return show_posts(all_posts(), byyear=true)
 end
 
+function hfun_pub()
+    read(`pandoc -f markdown+yaml_metadata_block+citations+raw_html -C _assets/pub.md --bibliography=_assets/MyAuthoredPapers.bib   --mathjax`,String)
+end
 
 # --------------------------------- #
 # Working with Javascript Libraries #
