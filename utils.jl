@@ -44,7 +44,7 @@ end
     end
     if !all(isempty, (resume, email, twitter, gscholar, github, linkedin))
         write(io, html("<ul class=network-icon aria-hidden=true>"))
-        isempty(resume) || write(io, html("""<li><a href="$resume" target=_blank rel=noopener><i class="fas fa-file-text-o big-icon"></i></a></li>"""))
+        isempty(resume) || write(io, html("""<li><a href="$resume" target=_blank rel=noopener><i class="ai ai-cv big-icon"></i></a></li>"""))
         isempty(email) || write(io, html("""<li><a href="mailto:$email" target=_blank rel=noopener><i class="fas fa-envelope big-icon"></i></a></li>"""))
         isempty(twitter) || write(io, html("""<li><a href="$twitter" target=_blank rel=noopener><i class="fab fa-twitter big-icon"></i></a></li>"""))
         isempty(gscholar) || write(io, html("""<li><a href="$gscholar" target=_blank rel=noopener><i class="fas fa-graduation-cap big-icon"></i></a></li>"""))
