@@ -59,7 +59,7 @@ end
 # Biography block with optional resume link
 @env function biography(md; resume="")
     io = IOBuffer()
-    write(io, html("""<h1>Biography</h1>""") * md)
+    write(io,html("""<p>""")* md * html("""</p>"""))
     isempty(resume) || write(io, html("""
         </br><p><i class="fas fa-download pr-1 fa-fw"></i>Download my <a href="$resume" target=_blank>resumé</a>.</p>"""))
     return String(take!(io))
