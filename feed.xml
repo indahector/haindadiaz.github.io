@@ -9,11 +9,11 @@
 
   <channel>
     <title>
-      <![CDATA[  Franklin Template  ]]>
+      <![CDATA[  Hurricanes, atmospheres and open software&#33;  ]]>
     </title>
     <link> https://www.argelramirezreyes.com/ </link>
     <description>
-      <![CDATA[  Example website using Franklin  ]]>
+      <![CDATA[  Personal website of Argel Ram&#39;irez Reyes  ]]>
     </description>
     <atom:link
       href="https://www.argelramirezreyes.com/feed.xml"
@@ -31,7 +31,7 @@
     <![CDATA[  Academic is designed to give technical content creators a seamless experience. You can focus on the content and Academic handles the rest. Highlight your code snippets, take notes on math classes, and draw diagrams from textual representation.  ]]>
   </description>  
     
-  <pubDate>Mon, 08 Nov 2021 00:00:00 +0000</pubDate>  
+  <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>  
   
   
   <atom:author>
