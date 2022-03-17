@@ -192,6 +192,121 @@ end
 end
 
 # -------------------- #
+# List of recent news #
+# -------------------- #
+
+# Set global variable `dateformat` to `"post"`, `"yearmonth"`, or `"year"`
+# The expected file structures are
+# - `"yearmonth"`: posts/YYYY/MM/name-of-post.md
+# - `"year"`: posts/YYYY/name-of-post.md
+# - `"post"`: posts/name-of-post.md
+
+function all_news()
+    news = Pair{String,Date}[]
+    dateformat = globvar("dateformat"; default="yearmonth")
+    for (root, _, files) in walkdir(joinpath(Franklin.FOLDER_PATH[], "news"))
+        for file in files
+            endswith(file, ".md") || continue
+            ppath = joinpath(root, file)
+            endswith(ppath, joinpath("news", "index.md")) && continue
+            spath = splitpath(ppath)
+            new = first(splitext(pop!(spath)))
+            if dateformat == "yearmonth"
+                mm = pop!(spath)
+                yy = pop!(spath)
+                rpath = joinpath("news", yy, mm, new)
+            elseif dateformat == "year"
+                mm = "01"
+                yy = pop!(spath)
+                rpath = joinpath("news", yy, new)
+            elseif dateformat == "new"
+                mm = yy = "01"
+                rpath = joinpath("news", new)
+            else
+                error("Dateformat $dateformat not supported, use 'new', 'year', or 'yearmonth'")
+            end
+            
+            date = pagevar(rpath, "pubdate")
+            isnothing(date) && (date = Date("$yy-$mm-01"))
+            push!(news, rpath => date)
+        end
+    end
+    # sort by chron order, most recent first
+    return sort(news, by=(e->e.second), rev=true)
+end
+
+function show_news(news; byyear=false)
+    isempty(news) && return ""
+    curyear = year(news[1].second)
+    io = IOBuffer()
+    byyear && write(io, """
+        <div class="col-12 col-lg-4"><h1>$curyear</h1></div>
+        <div class="col-12 col-lg-8">
+        """)
+    for new in news
+        if byyear && year(new.second) < curyear
+            curyear = year(new.second)
+            write(io, """
+                </div>
+                <div class="col-12 col-lg-4"><h1>$curyear</h1></div>
+                <div class="col-12 col-lg-8">
+                """)
+        end
+        rpath = new.first
+        title = pagevar(rpath, "title")
+        isnothing(title) && (title = "Untitled")
+        summary = pagevar(rpath, "summary")
+        isnothing(summary) && (summary = "")
+        date = Dates.format(new.second, dateformat"u d, Y")
+        imgpath = pagevar(rpath, "img")
+        if isnothing(imgpath)
+            imgpath = ""
+        else
+            if imgpath[1] != '/'
+                imgpath = "$imgpath"
+            end
+        end
+        write(io, """
+            <div class="media stream-item">
+              <div class=media-body>
+                <h3 class="article-title mb-0 mt-0"><a href="/$rpath">$title</a></h3>
+                <a href="/$rpath" class=summary-link>
+                  <div class=article-style>$summary</div>
+                </a>
+                <div class="stream-meta article-metadata">
+                  <div class=article-metadata><span class=article-date>$date.</span>
+                  </div>
+                </div>
+              </div>
+              <div class=ml-3>
+              $(ifelse(isempty(imgpath), "", """<a href="/$rpath"><img src="$imgpath" alt="$title"></a>"""))
+              </div>
+            </div>""")
+    end
+    return String(take!(io))
+end
+
+function hfun_recentnews(params)
+    n = parse(Int, params[1])
+    allnews = all_news()
+    news = allnews[1:min(n, length(allnews))]
+    return show_news(news)
+end
+
+function hfun_allnews()
+    return show_news(all_news(), byyear=true)
+end
+
+# --------------------------------- #
+# Working with Javascript Libraries #
+# --------------------------------- #
+
+function env_mermaid(e, _)
+    content = Franklin.content(e)
+    return "@@mermaid ~~~$content~~~@@"
+end
+
+# -------------------- #
 # List of recent posts #
 # -------------------- #
 
@@ -301,11 +416,3 @@ function hfun_pub()
     read(`pandoc -f markdown+yaml_metadata_block+citations+raw_html -C _assets/pub.md --bibliography=_assets/MyAuthoredPapers.bib   --mathjax`,String)
 end
 
-# --------------------------------- #
-# Working with Javascript Libraries #
-# --------------------------------- #
-
-function env_mermaid(e, _)
-    content = Franklin.content(e)
-    return "@@mermaid ~~~$content~~~@@"
-end

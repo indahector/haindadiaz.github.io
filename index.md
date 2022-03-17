@@ -43,6 +43,21 @@
 @@ <!-- end of column -->
 \end{section}
 
+
+
+<!-- --------------
+     NEWS SECTION
+     -------------- -->
+
+\begin{section}{name="News"} <!--, class="wg-featurette", rowclass="featurette"} -->
+
+\sectionheading{"News", class="col-md-12"}
+
+{{recentnews 3}}
+
+\end{section}
+
+
 <!-- --------------
      SKILLS SECTION
      -------------- -->
@@ -55,8 +70,7 @@
 \skill{"Photography", "10%", fa="camera-retro"}
 
 \end{section}
- 
- 
+
  <!-- ------------------
      EXPERIENCE SECTION
      ------------------ -->
