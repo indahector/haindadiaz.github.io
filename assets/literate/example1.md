@@ -12,20 +12,20 @@ the last line of the code block.
 
 Let's start with something very simple
 
-```julia:ex1
+````julia:ex1
 x = 5
-```
+````
 
 And we can keep going with simple things
 
-```julia:ex2
+````julia:ex2
 foreach(println, ('*'^i for i in 1:x))
-```
+````
 
 You can use packages of course, just make sure your website folder has a `Project.toml`
 with all your dependencies listed; also if you use the GitHub deployment path, you will need to make sure the deploy script installs the right package (head to the [docs](https://franklinjl.org) for more information).
 
-```julia:ex3
+````julia:ex3
 using PyPlot
 
 figure(figsize=(8, 6))
@@ -34,7 +34,7 @@ y = @. sin(3x) * exp(-x/5) + log(x) * cos(x) / 10
 plot(x, y)
 
 savefig(joinpath(@OUTPUT, "example1.svg")) # hide
-```
+````
 
 in the comments the markdown is treated as Franklin markdown so you can do things like
 include images inside div blocks etc:
