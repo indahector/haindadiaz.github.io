@@ -55,9 +55,9 @@
 
 
 @@col-12,col-lg-8,pubs
- \
-\sectionheading{"Recent publications", class="col-md-12"}
-{{pub}}
+<!--  \ -->
+<!-- \sectionheading{"Recent publications", class="col-md-12"} -->
+<!-- {{pub}} -->
 
 @@
 
