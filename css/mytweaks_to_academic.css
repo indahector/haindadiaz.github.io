@@ -1,3 +1,20 @@
 html{font-size:16px}
 .avatar{width:150px;height:150px}
 .home-section{padding:15px}
+h3.article-title{
+ color:#18a558;
+ text-decoration:none;
+ transition:color .6s ease
+}
+a{
+ color:#18a558;
+ text-decoration:none;
+ transition:color .6s ease
+}
+a:hover{
+ color:#28a745;
+ text-decoration:none;
+ transition:color .6s ease
+}
+.navbar{background:#eaeae0}
+.home-section{background-color:#f2f1f1}
