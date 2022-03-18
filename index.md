@@ -54,10 +54,10 @@
      -------------- -->
 
 
-@@col-12,col-lg-8,pubs
-<!--  \ -->
-<!-- \sectionheading{"Recent publications", class="col-md-12"} -->
-<!-- {{pub}} -->
+@@col-12,col-lg-6,pubs
+ \
+\sectionheading{"Recent publications", class="col-md-12"}
+{{pub}}
 
 @@
 
@@ -67,7 +67,7 @@
      -------------- -->
 
 
-@@col-12,col-lg-4,news
+@@col-12,col-lg-6,news
 
  \
 \sectionheading{"News", class="col-md-12"}

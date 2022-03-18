@@ -1,5 +1,5 @@
 using FranklinUtils
-
+using Bibliography
 # ----------------------------------- #
 # Academic blocks // General elements #
 # ----------------------------------- #
@@ -241,7 +241,7 @@ function show_news(news;)
     io = IOBuffer()
     write(io,"""
         <div>
-        <table class="table table-sm table-borderless">
+        <table style="font-size:1.0rem" class="table table-borderless">
         """)
     for new in news
         rpath = new.first
@@ -262,17 +262,17 @@ function show_news(news;)
         write(io, """
             <tr>
               </div>
-                <th style="vertical-align:middle;">
+                <td style="vertical-align:middle;">
                  <div class="article-metadata"><span class="article-date">$date </span>
-                 </th>
-                 <th>
+                 </td>
+                 <td>
                     <p>
-                    <h3><a>$title</a></h3>
+                    <a class="institution">$title</a>
                     <a href="$(summary_url)" >
-                        <p class="course">$summary</p>
+                        <p style="font-size:0.75rem" class="course">$summary</p>
                     </a>
                     </p>
-                </th>
+                </td>
             </tr>""")
     end
     write(io,"""</table>
@@ -407,14 +407,35 @@ function hfun_allposts()
 end
 
 function hfun_pub()
+    bib = bibtex_to_web("_assets/MyAuthoredPapers.bib")
+    isempty(bib) && return ""
     io = IOBuffer()
     write(io,"""
         <div>
-        
-    $(read(`pandoc -f markdown+yaml_metadata_block+citations+raw_html -C _assets/pub.md --bibliography=_assets/MyAuthoredPapers.bib  --mathjax --css=github-pandoc.css`,String))
-        
-        </div>
+        <table style="font-size:1.0rem" class="table table-borderless">
         """)
+    for bibitem in bib
+        title = replace(bibitem.title,"{"=>"","}"=>"")
+        authors = bibitem.names
+        link = bibitem.link
+        year = bibitem.year
+        journal = bibitem.in
+        write(io, """
+            <tr>
+              </div>
+                <td style="vertical-align:middle;">
+                 <div class="article-metadata"><span class="article-date">$year </span>
+                 </td>
+                 <td>
+                    <p class="course">$title></p>
+                    <p style="font-size:0.75rem;" class="institution">$authors</p>
+                    <p style="font-size:0.75rem;" class="institution">$journal</p>
+                    <p style="font-size:0.75rem;" class="institution">link: <a href=$link>$link</a></p>
+                </td>
+            </tr>""")
+    end
+    write(io,"""</table>
+                </div>""")
     return String(take!(io))
 end
 
