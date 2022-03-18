@@ -1,6 +1,6 @@
 +++
 author = "Argel Ramírez Reyes"
-shortauthor = "A. Ramírez Reyes"
+shortauthor = "Argel Ramírez Reyes"
 jobtitle = "PhD Candidate"
 
 prepath = ""
