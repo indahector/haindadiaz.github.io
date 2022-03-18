@@ -1,4 +1,4 @@
 ---
 nocite: |
- @ramirezreyesSpontaneousCyclogenesisRadiative2021a,
+ @ramirezreyesSpontaneousCyclogenesisRadiative2021,
 ...
