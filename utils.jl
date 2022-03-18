@@ -426,7 +426,7 @@ function hfun_pub()
         """)
     for bibitem in bib
         title = replace(bibitem.title,"{"=>"")
-        title = replace(bibitem.title,"}"=>"")        
+        title = replace(title,"}"=>"")        
         authors = bibitem.names
         link = bibitem.link
         year = bibitem.year
