@@ -20,7 +20,19 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://www.argelramirezreyes.com/research/index.html</loc>
+    <lastmod>2022-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://www.argelramirezreyes.com/posts/2020/07/literate/index.html</loc>
+    <lastmod>2022-03-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://www.argelramirezreyes.com/index.html</loc>
     <lastmod>2022-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
