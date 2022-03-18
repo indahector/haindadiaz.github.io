@@ -425,8 +425,8 @@ function hfun_pub()
         <table style="font-size:1.0rem" class="table table-borderless">
         """)
     for bibitem in bib
-        title = replace(bibitem.title,Dict("{"=>"", "}"=>"")... )
-        
+        title = replace(bibitem.title,"{"=>"")
+        title = replace(bibitem.title,"}"=>"")        
         authors = bibitem.names
         link = bibitem.link
         year = bibitem.year
@@ -438,7 +438,7 @@ function hfun_pub()
                  <div class="article-metadata"><span class="article-date">$year </span>
                  </td>
                  <td>
-                    <p class="course">$title </p>
+                    <p class="course">$title</p>
                     <p style="font-size:0.75rem;" class="institution">$authors</p>
                     <p style="font-size:0.75rem;" class="institution">$journal</p>
                     <p style="font-size:0.75rem;" class="institution">link: <a href=$link>$link</a></p>
