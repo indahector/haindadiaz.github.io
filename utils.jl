@@ -235,23 +235,15 @@ function all_news()
     return sort(news, by=(e->e.second), rev=true)
 end
 
-function show_news(news; byyear=false)
+function show_news(news;)
     isempty(news) && return ""
     curyear = year(news[1].second)
     io = IOBuffer()
-    byyear && write(io, """
-        <div class="col-12 col-lg-4"><h1>$curyear</h1></div>
-        <div class="col-12 col-lg-8">
+    write(io,"""
+        <div>
+        <table class="table table-sm table-borderless">
         """)
     for new in news
-        if byyear && year(new.second) < curyear
-            curyear = year(new.second)
-            write(io, """
-                </div>
-                <div class="col-12 col-lg-4"><h1>$curyear</h1></div>
-                <div class="col-12 col-lg-8">
-                """)
-        end
         rpath = new.first
         title = pagevar(rpath, "title")
         isnothing(title) && (title = "Untitled")
@@ -259,6 +251,7 @@ function show_news(news; byyear=false)
         isnothing(summary) && (summary = "")
         date = Dates.format(new.second, dateformat"u d, Y")
         imgpath = pagevar(rpath, "img")
+        summary_url = pagevar(rpath,"summaryurl")
         if isnothing(imgpath)
             imgpath = ""
         else
@@ -267,22 +260,23 @@ function show_news(news; byyear=false)
             end
         end
         write(io, """
-            <div class="media stream-item">
-              <div class=media-body>
-                <h3 class="article-title mb-0 mt-0"><a href="/$rpath">$title</a></h3>
-                <a href="/$rpath" class=summary-link>
-                  <div class=article-style>$summary</div>
-                </a>
-                <div class="stream-meta article-metadata">
-                  <div class=article-metadata><span class=article-date>$date.</span>
-                  </div>
-                </div>
+            <tr>
               </div>
-              <div class=ml-3>
-              $(ifelse(isempty(imgpath), "", """<a href="/$rpath"><img src="$imgpath" alt="$title"></a>"""))
-              </div>
-            </div>""")
+                <th style="vertical-align:middle;">
+                 <div class="article-metadata"><span class="article-date">$date </span>
+                 </th>
+                 <th>
+                    <p>
+                    <h3><a>$title</a></h3>
+                    <a href="$(summary_url)" >
+                        <p class="course">$summary</p>
+                    </a>
+                    </p>
+                </th>
+            </tr>""")
     end
+    write(io,"""</table>
+                </div>""")
     return String(take!(io))
 end
 
@@ -413,6 +407,14 @@ function hfun_allposts()
 end
 
 function hfun_pub()
-    read(`pandoc -f markdown+yaml_metadata_block+citations+raw_html -C _assets/pub.md --bibliography=_assets/MyAuthoredPapers.bib   --mathjax`,String)
+    io = IOBuffer()
+    write(io,"""
+        <div>
+        
+    $(read(`pandoc -f markdown+yaml_metadata_block+citations+raw_html -C _assets/pub.md --bibliography=_assets/MyAuthoredPapers.bib  --mathjax --css=github-pandoc.css`,String))
+        
+        </div>
+        """)
+    return String(take!(io))
 end
 
