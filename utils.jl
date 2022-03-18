@@ -268,7 +268,17 @@ function show_news(news;)
                  <td>
                     <p>
                     <a class="institution">$title</a>
-                    <a href="$(summary_url)" >
+                """)
+        if !isnothing(summary_url)
+            write(io,"""
+                <a href="$(summary_url)">
+                """)
+        else
+            write(io,"""
+                    <a>
+                    """)
+        end
+        write(io,"""
                         <p style="font-size:0.75rem" class="course">$summary</p>
                     </a>
                     </p>
