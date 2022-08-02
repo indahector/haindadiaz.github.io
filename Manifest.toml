@@ -57,15 +57,15 @@ version = "1.12.2"
 
 [[ChangesOfVariables]]
 deps = ["ChainRulesCore", "LinearAlgebra", "Test"]
-git-tree-sha1 = "1e315e3f4b0b7ce40feded39c73049692126cf53"
+git-tree-sha1 = "38f7a08f19d8810338d4f5085211c7dfa5d5bdd8"
 uuid = "9e997f8a-9a97-42d5-a9f1-ce6bfc15e2c0"
-version = "0.1.3"
+version = "0.1.4"
 
 [[ColorSchemes]]
 deps = ["ColorTypes", "ColorVectorSpace", "Colors", "FixedPointNumbers", "Random"]
-git-tree-sha1 = "7297381ccb5df764549818d9a7d57e45f1057d30"
+git-tree-sha1 = "1fd869cc3875b57347f7027521f561cf46d1fcd8"
 uuid = "35d6a980-a343-548e-a6ea-1d62b119f2f4"
-version = "3.18.0"
+version = "3.19.0"
 
 [[ColorTypes]]
 deps = ["FixedPointNumbers", "Random"]
@@ -164,15 +164,15 @@ version = "0.8.4"
 
 [[Franklin]]
 deps = ["Dates", "DelimitedFiles", "DocStringExtensions", "ExprTools", "FranklinTemplates", "HTTP", "Literate", "LiveServer", "Logging", "Markdown", "NodeJS", "OrderedCollections", "Pkg", "REPL", "Random", "TOML"]
-git-tree-sha1 = "72e24bd2aeb71e7b4eab9ebfc9c1764c84bd3531"
+git-tree-sha1 = "d030c0697ad24c2fe1aac1ee75e3182cb571067f"
 uuid = "713c75ef-9fc9-4b05-94a9-213340da978e"
-version = "0.10.74"
+version = "0.10.76"
 
 [[FranklinTemplates]]
 deps = ["LiveServer"]
-git-tree-sha1 = "3cac0704777d9ff157f5eb4406ff4afdfae2fb9c"
+git-tree-sha1 = "d15c3043dc90d5df4e499f66a2e3a9c676a41240"
 uuid = "3a985190-f512-4703-8d38-2a7944ed5916"
-version = "0.8.27"
+version = "0.8.28"
 
 [[FranklinUtils]]
 deps = ["ExprTools", "Franklin"]
@@ -249,9 +249,9 @@ version = "0.21.3"
 
 [[JSONSchema]]
 deps = ["HTTP", "JSON", "URIs"]
-git-tree-sha1 = "733e602e31a83377fc22b723a89ff0f7db417c3c"
+git-tree-sha1 = "8d928db71efdc942f10e751564e6bbea1e600dfe"
 uuid = "7d188eb4-7ad8-530c-ae41-71a32a6d4692"
-version = "1.0.0"
+version = "1.0.1"
 
 [[Kaleido_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -319,9 +319,9 @@ version = "0.7.4"
 
 [[LogExpFunctions]]
 deps = ["ChainRulesCore", "ChangesOfVariables", "DocStringExtensions", "InverseFunctions", "IrrationalConstants", "LinearAlgebra"]
-git-tree-sha1 = "09e4b894ce6a976c354a69041a04748180d43637"
+git-tree-sha1 = "361c2b088575b07946508f135ac556751240091c"
 uuid = "2ab3a3ac-af41-5b50-aa03-7779005ae688"
-version = "0.3.15"
+version = "0.3.17"
 
 [[Logging]]
 uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
@@ -359,9 +359,9 @@ version = "2022.3.29+0"
 
 [[Mustache]]
 deps = ["Printf", "Tables"]
-git-tree-sha1 = "bfbd6fb946d967794498790aa7a0e6cdf1120f41"
+git-tree-sha1 = "1e566ae913a57d0062ff1af54d2697b9344b99cd"
 uuid = "ffc61752-8dc7-55ee-8c37-f3e9cdd09e70"
-version = "1.0.13"
+version = "1.0.14"
 
 [[Mux]]
 deps = ["AssetRegistry", "Base64", "HTTP", "Hiccup", "Pkg", "Sockets", "WebSockets"]
@@ -496,9 +496,9 @@ uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
 
 [[SpecialFunctions]]
 deps = ["ChainRulesCore", "IrrationalConstants", "LogExpFunctions", "OpenLibm_jll", "OpenSpecFun_jll"]
-git-tree-sha1 = "a9e798cae4867e3a41cae2dd9eb60c047f1212db"
+git-tree-sha1 = "d75bda01f8c31ebb72df80a46c88b25d1c79c56d"
 uuid = "276daf66-3868-5448-9aa4-cd146d93841b"
-version = "2.1.6"
+version = "2.1.7"
 
 [[Statistics]]
 deps = ["LinearAlgebra", "SparseArrays"]
