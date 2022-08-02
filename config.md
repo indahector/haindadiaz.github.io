@@ -16,8 +16,8 @@ hasmermaid = false
 # The expected file structures are
 # - `"yearmonth"`: posts/YYYY/MM/name-of-post.md
 # - `"year"`: posts/YYYY/name-of-post.md
-# - `"post"`: posts/name-of-post.md
-dateformat = "yearmonth"
+# - `"posts"`: posts/name-of-post.md
+dateformat = "year"
 # RSS setup
 website_title = "Hurricanes, atmospheres and open software!"
 website_descr = "Personal website of Argel Ram\'irez Reyes"

@@ -320,36 +320,36 @@ end
 # - `"year"`: posts/YYYY/name-of-post.md
 # - `"post"`: posts/name-of-post.md
 
-function all_posts()
+function all_posts(postsdir = "posts")
     posts = Pair{String,Date}[]
     dateformat = globvar("dateformat"; default="yearmonth")
-    for (root, _, files) in walkdir(joinpath(Franklin.FOLDER_PATH[], "posts"))
-        for file in files
-            endswith(file, ".md") || continue
-            ppath = joinpath(root, file)
-            endswith(ppath, joinpath("posts", "index.md")) && continue
-            spath = splitpath(ppath)
-            post = first(splitext(pop!(spath)))
-            if dateformat == "yearmonth"
-                mm = pop!(spath)
-                yy = pop!(spath)
-                rpath = joinpath("posts", yy, mm, post)
-            elseif dateformat == "year"
-                mm = "01"
-                yy = pop!(spath)
-                rpath = joinpath("posts", yy, post)
-            elseif dateformat == "post"
-                mm = yy = "01"
-                rpath = joinpath("posts", post)
-            else
-                error("Dateformat $dateformat not supported, use 'post', 'year', or 'yearmonth'")
+        for (root, _, files) in walkdir(joinpath(Franklin.FOLDER_PATH[], postsdir))
+            for file in files
+                endswith(file, ".md") || continue
+                ppath = joinpath(root, file)
+                endswith(ppath, joinpath(postsdir, "index.md")) && continue
+                spath = splitpath(ppath)
+                post = first(splitext(pop!(spath)))
+                if dateformat == "yearmonth"
+                    mm = pop!(spath)
+                    yy = pop!(spath)
+                    rpath = joinpath(postsdir, yy, mm, post)
+                elseif dateformat == "year"
+                    mm = "01"
+                    yy = pop!(spath)
+                    rpath = joinpath(postsdir, yy, post)
+                elseif dateformat == "post"
+                    mm = yy = "01"
+                    rpath = joinpath(postsdir, post)
+                else
+                    error("Dateformat $dateformat not supported, use 'post', 'year', or 'yearmonth'")
+                end
+                
+                date = pagevar(rpath, "pubdate")
+                isnothing(date) && (date = Date("$yy-$mm-01"))
+                push!(posts, rpath => date)
             end
-            
-            date = pagevar(rpath, "pubdate")
-            isnothing(date) && (date = Date("$yy-$mm-01"))
-            push!(posts, rpath => date)
         end
-    end
     # sort by chron order, most recent first
     return sort(posts, by=(e->e.second), rev=true)
 end
@@ -414,6 +414,10 @@ end
 
 function hfun_allposts()
     return show_posts(all_posts(), byyear=true)
+end
+
+function hfun_allposts_en()
+    return show_posts(all_posts("posts_en"), byyear=true)
 end
 
 function hfun_pub()
