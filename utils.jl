@@ -279,7 +279,7 @@ function show_news(news;)
                     """)
         end
         write(io,"""
-                        <p style="font-size:0.75rem" class="course">$summary</p>
+                        <p style="font-size:0.90rem" class="course">$summary</p>
                     </a>
                     </p>
                 </td>
@@ -443,9 +443,9 @@ function hfun_pub()
                  </td>
                  <td>
                     <p class="course">$title</p>
-                    <p style="font-size:0.75rem;" class="institution">$authors</p>
-                    <p style="font-size:0.75rem;" class="institution">$journal</p>
-                    <p style="font-size:0.75rem;" class="institution">link: <a href=$link>$link</a></p>
+                    <p style="font-size:0.90rem; margin-bottom:0.2rem;" class="institution">$authors</p>
+                    <p style="font-size:0.90rem; margin-bottom:0.2rem;" class="institution">$journal</p>
+                    <p style="font-size:0.90rem;" class="institution">link: <a href=$link>$link</a></p>
                 </td>
             </tr>""")
     end
