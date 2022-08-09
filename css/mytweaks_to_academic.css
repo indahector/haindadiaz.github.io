@@ -9,12 +9,13 @@ h3.article-title{
 a{
  color:#18a558;
  text-decoration:none;
+ text-decoration-color:#18a558;
  transition:color .6s ease
+	    
 }
 a:hover{
  color:#28a745;
  text-decoration:none;
+  text-decoration-color:#18a558;
  transition:color .6s ease
 }
-.navbar{background:#eaeae0}
-.home-section{background-color:#f2f1f1}
