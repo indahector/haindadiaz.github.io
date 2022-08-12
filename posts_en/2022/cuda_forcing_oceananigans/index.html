@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="author" content="Argel Ramírez Reyes">
+  <meta name="description" content="PhD Candidate">
+
+  <meta name="theme-color" content="#2962ff">
+  <link rel="icon" href="/assets/cloud-wind.ico">
+  <link
+  rel=preconnect
+  href="https://fonts.gstatic.com"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css"
+  crossorigin=anonymous>
+
+<link
+  rel=stylesheet
+  href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap"
+  crossorigin=anonymous>
+
+<!-- locally served -->
+<link rel=stylesheet href="/libs/academic/academic.min.css">
+
+<link rel=stylesheet href="/css/extra.css">
+
+<!-- highlight + katex + plotly -->
+<link rel=stylesheet href="/libs/highlight/github.min.css">
+
+  <link rel="stylesheet" href="/libs/katex/katex.min.css">
+
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin=anonymous async></script>
+
+  <link rel="stylesheet" href="/css/academicons.min.css"/>
+  <link rel="stylesheet" href="/css/mytweaks_to_academic.css"/>
+
+   <title>Implementing a GPU-capable convective parameterization on Oceananigans.jl</title>  
+</head>
+
+<body id=top data-spy="scroll" data-offset="70" data-target=#navbar-main>
+
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id=navbar-main>
+  <div class=container>
+    <!-- Main name -->
+    <div class="d-none d-lg-inline-flex">
+      <a class=navbar-brand href="/">Argel Ramírez Reyes</a>
+    </div>
+    <!-- Button for narrow mode -->
+    <button type=button class=navbar-toggler data-toggle=collapse data-target=#navbar-content aria-controls=navbar aria-expanded=false aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    <!-- Main name for mobile mode -->
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class=navbar-brand href="/">Argel Ramírez Reyes</a>
+    </div>
+    <!-- Menu items -->
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id=navbar-content>
+      <ul class="navbar-nav d-md-inline-flex">
+        <!-- <li class=nav-item><a class=nav-link href="/#posts" data-target=#posts><span>Recent posts</span></a></li> -->
+        <li class=nav-item><a class=nav-link href="/posts/"><span>Blog ES</span></a></li>
+	<li class=nav-item><a class=nav-link href="/posts_en/"><span>Blog EN</span></a></li>
+        <!-- <\!-- <li class=nav-item><a class=nav-link href="/courses/"><span>Courses</span></a></li> -\-> -->
+        <!-- <li class=nav-item><a class=nav-link href="/research/"><span>Research</span></a></li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  <span class="js-widget-page d-none"></span>
+
+  
+    <article class=article>
+      <div class="article-container pt-3">
+        <h1>Implementing a GPU-capable convective parameterization on Oceananigans.jl</h1>
+      </div>
+      
+
+      <div class="article-container">
+        <div class="article-style">
+  
+<div class="franklin-content">
+<p>In this post I share my experience about how easy is it to add GPU-capable pieces of software to a fluid dynamics software in the Julia programming language with the help of CUDA.jl and Oceananigans.jl. All the code shown in this blog post can be found <a href="https://github.com/aramirezreyes/RamirezReyes_ShallowWaterInFPlane/commit/8834855f91e7d76364f7e553a258ae4fc2daa08f">here</a></p>
+<p><img src="/assets/img/tcs_shallow_water.png" alt="Tropical Cyclones in a Shallow Water model with a convective parameterization" /></p>
+<p><a href="https://github.com/CliMA/Oceananigans.jl">Oceananigans.jl</a> is described as &quot;A Julia software for fast, friendly, flexible, ocean-flavored fluid dynamics on CPUs and GPUs. It developed as a part of the <a href="https://clima.caltech.edu">Climate Modelling Alliance</a>. It really delivers what it promises, as running one of the example simulations on GPUs &#40;Graphics Processing Units&#41; is just as easy as changing one line in a script to read &quot;GPU&quot; instead of &quot;CPU&quot;.</p>
+<p>One of my favorite things about the julia language is that the distance between a &quot;user&quot; and a &quot;developer&quot; is much smaller than in other high-level languages. This means that if you are able to write a script to run a simulation using another person&#39;s package, you have almost all the skills needed to write fast code that performs as well as writing code in the C language &#40;the golden standard&#41; and that looks similar to the implementation of most functions available in the language. </p>
+<p>Here, I show how working with Oceananigans.jl is a fantastic experience, and that extending its capabilities to work on a GPU is almost as easy as doing it for CPU.</p>
+<p>What I want to do is to extend the Shallow Water model in Oceananigans, and implement a representation of convection. If you are not interested in details of this model, you can skip the next section and go straight to the Implementation.</p>
+<h2 id="the_model"><a href="#the_model" class="header-anchor">The model</a></h2>
+<p>The model we are implementing is that in <a href="https://arxiv.org/abs/1210.5533">Yang 2013</a>. The full set of equations that we will solve is:</p>
+<a id="swsystem" class="anchor"></a>\[\begin{aligned}
+  \frac{\partial u}{\partial t} + u\frac{\partial u}{\partial x} + v\frac{\partial u}{\partial y} -fv & = -g \frac{\partial h}{\partial x} -\frac{u}{\tau_d} \\
+  \frac{\partial v}{\partial t} + u\frac{\partial v}{\partial x} + v\frac{\partial v}{\partial y} + fu & = -g \frac{\partial h}{\partial y} -\frac{v}{\tau_d} \\
+  \frac{\partial h}{\partial t} + \nabla \cdot (\mathbf{u}h) & = Q(x,y,t) -\frac{h - h_0}{\tau_d}  + F_{rs},
+\end{aligned}\]
+<p>These are the well-known <a href="https://en.wikipedia.org/wiki/Shallow_water_equations">shallow water equations</a> that are already solved by the Shallow Water model in Oceananigans.jl. We added some damping in all the fields to be consistent with other studies, and  a forcing to the height field. This is our convective parameterization that adds &quot;mass&quot; to the h field in the following way:</p>
+\[\begin{aligned}
+  Q(x,y,t) & = \begin{cases}
+    -\frac{q}{r_c \tau_c} \left [ 1 - \left ( \frac{\Delta t - \tau_c/2}{\tau_c/2} \right )^2 \right ] \left ( 1 - \frac{r^2}{r_c^2} \right ) & \textrm{when a convective event is active}\\
+    0,& \textrm{otherwise},
+    \end{cases}
+\end{aligned}\]
+<p>where \(q\), \(t_c\) and \(r_c\) are the magnitude, radius and duration of convective events, \(\Delta t\) is the time that has passed since the convective event started and \(r\) is the distance from the point in which a convective event was triggered. Each convective event is triggered when the mass of the system exceeds certain threshold, representing a mass sink. This parameterization is interesting because it can reproduce some forms of organized convection like the <a href="https://en.wikipedia.org/wiki/Madden&#37;E2&#37;80&#37;93Julian_oscillation">Madden-Julian oscillation</a> which affects the weather in a good portion of the globe and that continues to puzzle scientists. We want to use this to study how hurricanes form and intensify.</p>
+<h2 id="the_implementation"><a href="#the_implementation" class="header-anchor">The implementation</a></h2>
+<h3 id="implementation_attempt_1"><a href="#implementation_attempt_1" class="header-anchor">Implementation attempt 1</a></h3>
+<p>Let&#39;s think about only one point in the grid. Our roadmap is:</p>
+<ol>
+<li><p>Check if this point &#40;i,j&#41; meets the conditions to inject mass.</p>
+</li>
+<li><p>If it is convecting, go through its sorroundings, adding mass to each neighbohr.</p>
+</li>
+</ol>
+<h3 id="parallel_programming_requires_to_think_things_differently_or_avoiding_a_race_condition"><a href="#parallel_programming_requires_to_think_things_differently_or_avoiding_a_race_condition" class="header-anchor">Parallel programming requires to think things differently &#40;or avoiding a race condition&#41;</a></h3>
+<p>While the previous roadmap seems reasonable, it has a limitation: it cannot easily be paralellized. Imagine one point &#40;A&#41; that falls between two convective events &#40;C1 and C2&#41;. The paralellization strategy would be that each different processing unit &#40;could be each core of a CPU/GPU or each task&#41; would take care of one convective event. When adding mass, each convective event will read the original value stored in A and add its own share of mass. This can happen in two ways:</p>
+<ol>
+<li><p>C1 reads the intial value of A and adds mass to it. C2 reads the updated value and adds mass to it. Success&#33;</p>
+</li>
+<li><p>C1 and C2 read the original value of A and they both add mass to it. Then they update with their own new value at the same time. Error&#33; The final value does not contain the mass from both convective events, but only from the latest that wrote its updated value. <strong>This is called a race condition</strong>. </p>
+</li>
+</ol>
+<p>The problem will get worse if we have more than two convective events adding mass at the same time. We need to rethink the strategy.</p>
+<h3 id="implementation_attempt_2"><a href="#implementation_attempt_2" class="header-anchor">Implementation attempt 2</a></h3>
+<p>If we expect to parallelize the problem, we need another strategy. Here is a second proposal. </p>
+<p>Let&#39;s think again about one point &#40;i,j&#41; in the grid.</p>
+<ol>
+<li><p>Go through its sorroundings.</p>
+</li>
+<li><p>If any neighbohring point is convecting, add mass to &#40;i,j&#41;.</p>
+</li>
+</ol>
+<p>The difference is subtle, but if we paralellize the second proposal, no race condition exists, as each point in the &quot;mass&quot; array would only be written by one processing unit at each timestep. We will go with this one. This can be called an &quot;embarassingly parallel&quot; problem because each processing unit can do its own task without worrying about exchanging information with the others. This something GPUs are very good at and this feature motivates the rest of the work.</p>
+<h3 id="cpu_implementation"><a href="#cpu_implementation" class="header-anchor">CPU implementation</a></h3>
+<p>To implement our convective parameterization, we will need two auxiliary arrays. One will store a boolean condition to indicate if each point is convecting. The other will store the time at which each point started convecting the last time. Lets called them <code>isconvecting</code> and <code>convection_triggered_time</code>. These two will have the same size as the <code>h</code> field and other fields in the domain. Now, we need a function that, at each time step, evaluates the conditions at each point of the domain and decides is the convective parameterization must act. Now we want that each time step, these two arrays are updated with current information about what points should be convecting.</p>
+<pre><code class="language-plaintext">For each point in the domain
+	Compute the time it has been convecting
+	Has this point been convecting less than intended? or
+	Is this point below the convective threshold? or
+	Is this point a new convecting point?
+	If any of these three conditions is true
+		update an array to indicate that this point is convecting and indicate when it started
+	end
+end</code></pre>
+<p>Which in julia looks like this</p>
+<pre><code class="language-julia">function update_convective_events_cpu&#33;&#40;isconvecting,convection_triggered_time,h,t,τ_convec,h_threshold&#41;
+	for ind in eachindex&#40;h&#41;
+		time_convecting &#61; t - convection_triggered_time&#91;ind&#93;
+		needs_to_convect_by_time &#61; isconvecting&#91;ind&#93; * &#40;time_convecting &lt; τ_convec&#41; #has been convecting less than τ_c?
+		needs_to_convect_by_height &#61; h&#91;ind&#93; &gt;&#61; h_threshold
+		will_start_convecting &#61; needs_to_convect_by_height * iszero&#40;needs_to_convect_by_time&#41; #time needs be updated?
+		needs_to_convect &#61; needs_to_convect_by_time | needs_to_convect_by_height
+		isconvecting&#91;ind&#93; &#61; needs_to_convect
+		convection_triggered_time&#91;ind&#93; &#61; ifelse&#40;will_start_convecting, t, convection_triggered_time&#91;ind&#93;&#41;
+	end
+    return nothing
+end</code></pre>
+<p>Now, we want each processing unit to add mass to only one point. How much mass? This depends on how many convecting points are around it, how far they are, and for how long each one has been convecting. </p>
+<p>Something like:</p>
+<pre><code class="language-plaintext">For each neighbor
+	Is this neighbor convecting? then
+		How far is this?
+		For how long has it been convecting?
+		add_mass_to_myself&#40;distance, time&#41;
+	end
+end</code></pre>
+<p>Which in julia looks something like this:</p>
+<pre><code class="language-julia">function heat_at_point&#40;i,j,k,current_time,τc,isconvecting,convection_triggered_time,numelements_to_traverse, heating_stencil&#41;
+    forcing &#61; 0.0
+    nn &#61; -numelements_to_traverse
+    np &#61; numelements_to_traverse
+    for neigh_j in nn:np
+        jinner &#61; j &#43; neigh_j
+        for neigh_i in nn:np
+            iinner &#61; i &#43; neigh_i
+             if isconvecting&#91;iinner , jinner&#93;
+                 forcing &#61; forcing - heat&#40;current_time,convection_triggered_time&#91;iinner,jinner&#93;,τc,heating_stencil&#91;neigh_i,neigh_j&#93;&#41;
+             end
+        end
+    end 
+    return forcing
+end</code></pre>
+<h3 id="gpu_implementation"><a href="#gpu_implementation" class="header-anchor">GPU implementation</a></h3>
+<p>Now. This is where the magic happens. Something great about Oceananigans.jl is that is has most of the infraestructure ready to help you plug in some forcing to the model fields. This forcing can then be run on whatever architecture you have chosen &#40;GPU or CPU&#41;. In this case our <code>heat_at_point</code> function is generic enough that Oceananigans.jl can work with it.</p>
+<p>However, because Oceananigans.jl does not manage our <code>isconvecting</code> and <code>convection_triggered_time</code> arrays we need to write a function to update them using the GPU. Fortunately, <code>CUDA.jl</code> is another library that exposes most of the functionality of cuda &#40;the set of tools to run general purpose code in a Nvidia GPUS&#41; from julia. Doing just minimal changes, our new function looks like this:</p>
+<pre><code class="language-julia">function update_convective_events_gpu&#33;&#40;isconvecting,convection_triggered_time,h,t,τ_convec,h_threshold,Nx,Ny&#41;
+
+    index_x &#61; &#40;blockIdx&#40;&#41;.x - 1&#41; * blockDim&#40;&#41;.x &#43; threadIdx&#40;&#41;.x
+    stride_x &#61; gridDim&#40;&#41;.x * blockDim&#40;&#41;.x
+
+    index_y &#61; &#40;blockIdx&#40;&#41;.y - 1&#41; * blockDim&#40;&#41;.y &#43; threadIdx&#40;&#41;.y
+    stride_y &#61; gridDim&#40;&#41;.y * blockDim&#40;&#41;.y
+
+    
+    for i in index_x:stride_x:Nx
+        for j in index_y:stride_y:Ny
+            time_convecting &#61; t - convection_triggered_time&#91;i,j&#93;
+            needs_to_convect_by_time &#61; isconvecting&#91;i,j&#93; &amp;&amp; &#40;time_convecting &lt; τ_convec&#41; 
+            needs_to_convect_by_height &#61; h&#91;i,j&#93; &gt;&#61; h_threshold
+            will_start_convecting &#61; needs_to_convect_by_height &amp;&amp; iszero&#40;needs_to_convect_by_time&#41; 
+            isconvecting&#91;i,j&#93; &#61; needs_to_convect_by_time || needs_to_convect_by_height 
+            will_start_convecting &amp;&amp; &#40;convection_triggered_time&#91;i,j&#93; &#61; t&#41;
+        end
+    end
+    
+    return nothing
+end</code></pre>
+<p>The only significant change that we did is in the way we iterate over the fields. In this case, each processing unit will be in charge of only a handful of operations so we don&#39;t need to make a loop over all of the element in the array. This kernel will be passed to each processing unit.</p>
+<p>This gives a considerable speedup to run simulations like those shown in the beginning. </p>
+<p>With julia and Oceananigans.jl, the code is so reusable and versatile, that you can devote more time to explore your simulations than to writing them. And you also enjoy the writing&#33;</p>
+<p>You can see the full implementation of the convective parameterization in  <a href="https://github.com/aramirezreyes/RamirezReyes_ShallowWaterInFPlane/commit/8834855f91e7d76364f7e553a258ae4fc2daa08f">here</a></p>
+<p>Resources: </p>
+<ul>
+<li><p>Yang and Ingersoll &#40;2013&#41; <a href="https://arxiv.org/abs/1210.5533">Triggered convection, gravity waves, and the MJO: A shallow water model</a></p>
+</li>
+<li><p>The julia language &#40;https://www.julialang.org&#41;</p>
+</li>
+<li><p>Oceananigans.jl &#40;https://github.com/CliMA/Oceananigans.jl&#41;</p>
+</li>
+<li><p>CUDA.jl &#40;https://github.com/JuliaGPU/CUDA.jl&#41;</p>
+</li>
+</ul>
+
+</div> <!-- article style -->
+
+
+<div class="container">
+  <footer class="site-footer">
+    <p class="powered-by">Built with <a href="https://franklinjl.org" target="_blank" rel="noopener">Franklin.jl</a> and the <a href="https://julialang.org" target="_blank" rel="noopener">Julia Programming Language</a>.
+
+      <span class="float-right" aria-hidden="true">
+        <a href="#" class="back-to-top">
+          <span class="button_icon">
+            <i class="fas fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+    </p>
+  </footer>
+</div>
+</div>
+  </div> <!--article container -->
+</article>
+
+
+<!-- CONTENT ENDS HERE -->
+     <script src="/libs/katex/katex.min.js"></script>
+<script src="/libs/katex/auto-render.min.js"></script>
+<script>renderMathInElement(document.body)</script>
+     
+     <script src="/libs/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();hljs.configure({tabReplace: '    '});</script>
+ 
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin=anonymous></script>
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin=anonymous></script>
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin=anonymous></script>
+
+  <script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin=anonymous></script>
+
+  <script src="/libs/academic/academic.min.js"></script>
+
+  </body>
+</html>
