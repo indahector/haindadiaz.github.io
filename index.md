@@ -15,7 +15,7 @@
   job="PhD Candidate in Atmospheric Science",
   link="https://www.ucdavis.edu/",
   linkname="University of California, Davis",
-  resume="/assets/ARR_cv.pdf",
+  resume="/assets/ARR_resume.pdf",
   email="argel.ramirez@gmail.com",
   twitter="https://twitter.com/aramirezreyes",
   gscholar="https://scholar.google.com/citations?user=JkcQycYAAAAJ&hl=es",
@@ -29,7 +29,7 @@
 @@col-12,col-lg-8
 
 \begin{biography}{}
- I’m a PhD Candidate in the Atmospheric Sciences program at UC Davis, at [Dr Da Yang’s Climate group](https://www.yang-climate-group.org/). Among other things I am interested in tropical cyclones (my current research focus) in our changing climabte, tropical dynamics and open software. I am working towards understanding the essential elements in the genesis of tropical cyclones. My PhD Studies are mainly funded by the People of México through a CONACYT – UCMexus fellowship.
+ I’m a PhD Candidate in the Atmospheric Sciences program at UC Davis, at [Dr Da Yang’s Climate group](https://www.yang-climate-group.org/). Among other things I am interested in tropical cyclones (my current research focus), supercomputing, open science and open software. I am working towards understanding the essential elements in the genesis of tropical cyclones. My PhD Studies are mainly funded by the People of México through a CONACYT – UCMexus fellowship.
  
 \end{biography}
 

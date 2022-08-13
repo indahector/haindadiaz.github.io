@@ -1,7 +1,7 @@
 +++
 author = "Argel Ramírez Reyes"
 shortauthor = "Argel Ramírez Reyes"
-jobtitle = "PhD Candidate"
+jobtitle = "Atmospheric scientist and modeler. Supercomputing enthusiast."
 
 prepath = ""
 
@@ -19,8 +19,8 @@ hasmermaid = false
 # - `"posts"`: posts/name-of-post.md
 dateformat = "year"
 # RSS setup
-website_title = "Hurricanes, atmospheres and open software!"
-website_descr = "Personal website of Argel Ram\'irez Reyes"
+website_title = "Hurricanes, open science and julia language!"
+website_descr = "Personal website of Argel Ramíirez Reyes"
 website_url   = "https://www.argelramirezreyes.com/"
 +++
 
