@@ -9,7 +9,7 @@ tags = ["CUDA", "julia","conveccion"]
 
 En esta entrada comparto mi experiencia sobre lo fácil que es extender las capacidades de Oceananigans.jl en el lenguaje de programación Julia con la ayuda de CUDA.jl y Oceananigans.jl. Todo el código mostrado en esta entrada del blog puede encontrarse [aquí](https://github.com/aramirezreyes/RamirezReyes_ShallowWaterInFPlane/commit/8834855f91e7d76364f7e553a258ae4fc2daa08f)
 
-Ciclones tropicales en un modelo de aguas poco profundas con una parametrización convectiva](/assets/img/tcs_shallow_water.png)
+![Ciclones tropicales en un modelo de aguas poco profundas con una parametrización convectiva](/assets/img/tcs_shallow_water.png)
 
 [Oceananigans.jl](https://github.com/CliMA/Oceananigans.jl) se describe como "Un software escrito en Julia para una dinámica de fluidos rápida, amigable y flexible con sabor a océano en CPUs y GPUs. Se ha desarrollado como parte de la [Climate Modelling Alliance](https://clima.caltech.edu). Realmente cumple lo que promete, ya que ejecutar una de las simulaciones de ejemplo en las GPU (unidades de procesamiento gráfico) es tan fácil como cambiar una línea de un script para que diga "GPU" en lugar de "CPU".
 
