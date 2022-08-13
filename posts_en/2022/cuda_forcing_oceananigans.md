@@ -1,5 +1,5 @@
 +++
-pubdate = Date("2022-08-02")
+pubdate = Date("2022-08-12")
 title = "Implementing a GPU-capable convective parameterization on Oceananigans.jl"
 showall = true
 category = "code"

@@ -1,9 +1,9 @@
 +++
-pubdate = Date("2022-08-02")
+pubdate = Date("2022-08-12")
 title = "Implementando una parameterización convectiva para la GPU usando Oceananigans.jl"
 showall = true
 category = "code"
-tags = ["CUDA", "julia","convection"]
+tags = ["CUDA", "julia","conveccion"]
 +++
 
 
