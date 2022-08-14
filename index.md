@@ -87,6 +87,7 @@
 \sectionheading{"Favorite tools", class="col-md-12"}
 
 \skill{"Julia", "90%", img="/assets/img/julia-dots-colors.svg"}
+\skill{"Emacs", "50%", img="/assets/img/emacsicon.png"}
 \skill{"Photography", "10%", fa="camera-retro"}
 
 \end{section}

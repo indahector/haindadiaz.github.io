@@ -2,20 +2,35 @@ html{font-size:16px}
 .avatar{width:150px;height:150px}
 .home-section{padding:15px}
 h3.article-title{
- color:#18a558;
+ color:rgb(49, 96, 52);
  text-decoration:none;
  transition:color .6s ease
 }
 a{
- color:#18a558;
+ color:rgb(49, 96, 52);
  text-decoration:none;
- text-decoration-color:#18a558;
+ text-decoration-color:rgb(49, 96, 52);
  transition:color .6s ease
 	    
 }
 a:hover{
- color:#28a745;
+ color:rgb(49, 96, 52);
  text-decoration:none;
-  text-decoration-color:#18a558;
+ text-decoration-color:rgb(49, 96, 52);
  transition:color .6s ease
+}
+body{
+    font-weight:300;
+}
+navbar-brand{
+    color:rgb(49, 96, 52)
+}
+navbar-brand:focus{
+    color:rgb(49, 96, 52)
+}
+navbar-light:hover{
+    color:rgb(49, 96, 52)
+}
+navbar-light{
+    color:rgb(49, 96, 52)
 }
