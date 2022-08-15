@@ -7,3 +7,4 @@ Manifest.toml
 junk.html
 *~
 #*.*#
+_assets/auto/*
