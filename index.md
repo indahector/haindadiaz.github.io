@@ -9,7 +9,7 @@
 <!-- RIGHT COLUMN -->
 @@col-12,col-lg-4,profile
 
-\img{"/assets/img/ArgelRamirezReyes.jpg", class="avatar avatar-square", alt="Argel Ramírez Reyes"}
+\img{"/assets/img/ArgelRamirezReyes2.jpg", class="avatar avatar-square", alt="Argel Ramírez Reyes"}
 \portrait{
   name="Argel Ramírez Reyes",
   job="PhD Candidate in Atmospheric Science",
