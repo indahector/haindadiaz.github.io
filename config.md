@@ -1,7 +1,7 @@
 +++
-author = "Argel Ramírez Reyes"
-shortauthor = "Argel Ramírez Reyes"
-jobtitle = "Atmospheric scientist and modeler. Supercomputing enthusiast."
+author = "Héctor Alejandro Inda Díaz"
+shortauthor = "Héctor A. Inda-Díaz"
+jobtitle = "Atmospheric scientist, physical oceanograopher, and modeler. Supercomputing and python enthusiast."
 
 prepath = ""
 
@@ -19,9 +19,9 @@ hasmermaid = false
 # - `"posts"`: posts/name-of-post.md
 dateformat = "year"
 # RSS setup
-website_title = "Hurricanes, open science and julia language!"
-website_descr = "Personal website of Argel Ramíirez Reyes"
-website_url   = "https://www.argelramirezreyes.com/"
+website_title = "Atmospheric science, physical oceanography, extreme events, numerical modeling, open science and python language!"
+website_descr = "Personal website of Héctor Alejandro Inda Díaz"
+website_url   = "https://www.hectorindadiaz.com/"
 +++
 
 \newcommand{\callout}[1]{~~~<div class="alert alert-note"><div>~~~#1~~~</div></div>~~~}
