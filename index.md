@@ -1,4 +1,4 @@
-@def title = "Argel Ramírez Reyes"
+@def title = "Héctor Alejandro Inda Díaz"
 
 <!-- -----------------
      BIOGRAPHY SECTION
@@ -17,10 +17,10 @@
   linkname="CASCADE - LBNL",
   resume="/assets/ARR_resume.pdf",
   email="indahector@gmail.com",
-<!--   twitter="https://twitter.com/aramirezreyes", -->
+  twitter="https://twitter.com/indahector",
   gscholar="https://scholar.google.com/citations?user=JkcQycYAAAAJ&hl=es](https://scholar.google.com/citations?user=MBdNFm0AAAAJ&hl=en&oi=sra",
-  github="[https://github.com/aramirezreyes](https://github.com/indahector)",
-  linkedin="[https://www.linkedin.com/in/argelramirezreyes/](https://www.linkedin.com/in/indahector/)"
+  github="[https://github.com/indahector](https://github.com/indahector)",
+  linkedin="[https://www.linkedin.com/in/indahector/](https://www.linkedin.com/in/indahector/)"
 }
 @@ <!-- end of column -->
 
@@ -29,16 +29,15 @@
 @@col-12,col-lg-8
 
 \begin{biography}{}
- I’m a PhD Candidate in the Atmospheric Sciences program at UC Davis, at [Dr Da Yang’s Climate group](https://www.yang-climate-group.org/). Among other things I am interested in tropical cyclones (my current research focus), supercomputing, open science and open software. I am working towards understanding the essential elements in the genesis of tropical cyclones. My PhD Studies are mainly funded by the People of México through a CONACYT – UCMexus fellowship.
- 
+ I’m a Postdoctoral Scholar at Lawrence Berkeley National Laboratory ([LBNL](https://www.lbl.gov/)), at [CASCADE project]([https://www.yang-climate-group.org/](https://cascade.lbl.gov/)) and [Monsoons Extremes](https://boos.berkeley.edu/monsoonextremes/) at UC Berkeley. Among other things I am interested in the [North American Monsoon](https://www.climate.gov/news-features/blogs/enso/north-american-monsoon) and regionally refined Energy Exascale Earth System Model [E3SM](https://e3sm.org/) (my current research), [Atmospheric Rivers](https://www.noaa.gov/stories/what-are-atmospheric-rivers), atmospheric extreme events (extreme precipitation, atmospheric rivers, extratropical cyclones, heat waves, tropical cyclones, etc.), atmospheric and ocean numerical modeling, supercomputing, software development, open science and open software. 
 \end{biography}
 
 \shortcv{
   interests=["Fluid Dynamics", "Tropical cyclones", "Free software", "Supercomputing", "Climate"],
   education=[
-    ("PhD in Atmospheric Science, in progress.", "University of California, Davis"),
-    ("Masters in Scientific Computing, 2017", "Université de Lille 1, Sciences et Technologies"),
-    ("BSc in Physics, 2016", "Universidad Nacional Autónoma de México")]
+    ("Ph.D. in Atmospheric Science", 2022, "University of California, Davis"),
+    ("M.S. in Physical Oceanography, 2015", "Ensenada Center for Scientific Research and Higher Education"),
+    ("B.Sc. in Physics, 2012", "Universidad Nacional Autónoma de México")]
 }
 
 @@ <!-- end of column -->
@@ -86,9 +85,9 @@
 
 \sectionheading{"Favorite tools", class="col-md-12"}
 
-\skill{"Julia", "90%", img="/assets/img/julia-dots-colors.svg"}
-\skill{"Emacs", "50%", img="/assets/img/emacsicon.png"}
-\skill{"Photography", "10%", fa="camera-retro"}
+\skill{"Python", "90%", img="/assets/img/julia-dots-colors.svg"}
+\skill{"Vi", "50%", img="/assets/img/emacsicon.png"}
+\skill{"Jupyter", "10%", fa="camera-retro"}
 
 \end{section}
 
