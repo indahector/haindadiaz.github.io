@@ -9,18 +9,18 @@
 <!-- RIGHT COLUMN -->
 @@col-12,col-lg-4,profile
 
-\img{"/assets/img/perfil_sq.jpeg", class="avatar avatar-square", alt="Argel Ramírez Reyes"}
+\img{"/assets/img/perfil_sq.jpeg", class="avatar avatar-square", alt="Héctor Alejandro Inda Díaz"}
 \portrait{
-  name="Argel Ramírez Reyes",
-  job="PhD Candidate in Atmospheric Science",
-  link="https://www.ucdavis.edu/",
-  linkname="University of California, Davis",
+  name="Héctor Alejandro Inda Díaz",
+  job="PhD in Atmospheric Science",
+  link="[https://www.ucdavis.edu/](https://cascade.lbl.gov/team/)",
+  linkname="CASCADE - LBNL",
   resume="/assets/ARR_resume.pdf",
   email="argel.ramirez@gmail.com",
-  twitter="https://twitter.com/aramirezreyes",
-  gscholar="https://scholar.google.com/citations?user=JkcQycYAAAAJ&hl=es",
-  github="https://github.com/aramirezreyes",
-  linkedin="https://www.linkedin.com/in/argelramirezreyes/"
+<!--   twitter="https://twitter.com/aramirezreyes", -->
+  gscholar="https://scholar.google.com/citations?user=JkcQycYAAAAJ&hl=es](https://scholar.google.com/citations?user=MBdNFm0AAAAJ&hl=en&oi=sra",
+  github="[https://github.com/aramirezreyes](https://github.com/indahector)",
+  linkedin="[https://www.linkedin.com/in/argelramirezreyes/](https://www.linkedin.com/in/indahector/)"
 }
 @@ <!-- end of column -->
 
