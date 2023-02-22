@@ -1,4 +1,4 @@
-Sitemap: https://www.argelramirezreyes.com/sitemap.xml
+Sitemap: https://www.hectorindadiaz.com/sitemap.xml
 
 User-agent: *
 Disallow:
