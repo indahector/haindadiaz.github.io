@@ -13,10 +13,10 @@
 \portrait{
   name="Héctor Alejandro Inda Díaz",
   job="PhD in Atmospheric Science",
-  link="[https://www.ucdavis.edu/](https://cascade.lbl.gov/team/)",
+  link="[https://cascade.lbl.gov)](https://cascade.lbl.gov/team/)",
   linkname="CASCADE - LBNL",
   resume="/assets/ARR_resume.pdf",
-  email="argel.ramirez@gmail.com",
+  email="indahector@gmail.com",
 <!--   twitter="https://twitter.com/aramirezreyes", -->
   gscholar="https://scholar.google.com/citations?user=JkcQycYAAAAJ&hl=es](https://scholar.google.com/citations?user=MBdNFm0AAAAJ&hl=en&oi=sra",
   github="[https://github.com/aramirezreyes](https://github.com/indahector)",
