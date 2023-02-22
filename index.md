@@ -9,7 +9,7 @@
 <!-- RIGHT COLUMN -->
 @@col-12,col-lg-4,profile
 
-\img{"/assets/img/perfil_sq.jpeg", class="avatar avatar-square", alt="Héctor Alejandro Inda Díaz"}
+\img{"/assets/img/Hector_Inda_Diaz_2.jpg", class="avatar avatar-square", alt="Héctor Alejandro Inda Díaz"}
 \portrait{
   name="Héctor Alejandro Inda Díaz",
   job="PhD in Atmospheric Science",
