@@ -12,12 +12,12 @@
 \img{"/assets/img/Hector_Inda_Diaz_2.jpg", class="avatar avatar-square", alt="Héctor Alejandro Inda Díaz"}
 \portrait{
   name="Héctor Alejandro Inda Díaz",
-  job="PhD in Atmospheric Science",
+  job="Postdoctoral Scholar Researcher",
   link="[https://cascade.lbl.gov)](https://cascade.lbl.gov/team/)",
   linkname="CASCADE - LBNL",
-  resume="/assets/ARR_resume.pdf",
+  resume="/assets/CV_IndaDiaz.pdf",
   email="indahector@gmail.com",
-  twitter="https://twitter.com/indahector",
+  twitter="https://twitter.com/haindadiaz",
   gscholar="https://scholar.google.com/citations?user=JkcQycYAAAAJ&hl=es](https://scholar.google.com/citations?user=MBdNFm0AAAAJ&hl=en&oi=sra",
   github="[https://github.com/indahector](https://github.com/indahector)",
   linkedin="[https://www.linkedin.com/in/indahector/](https://www.linkedin.com/in/indahector/)"
@@ -29,13 +29,13 @@
 @@col-12,col-lg-8
 
 \begin{biography}{}
- I’m a Postdoctoral Scholar at Lawrence Berkeley National Laboratory ([LBNL](https://www.lbl.gov/)), at [CASCADE project]([https://www.yang-climate-group.org/](https://cascade.lbl.gov/)) and [Monsoons Extremes](https://boos.berkeley.edu/monsoonextremes/) at UC Berkeley. Among other things I am interested in the [North American Monsoon](https://www.climate.gov/news-features/blogs/enso/north-american-monsoon) and regionally refined Energy Exascale Earth System Model [E3SM](https://e3sm.org/) (my current research), [Atmospheric Rivers](https://www.noaa.gov/stories/what-are-atmospheric-rivers), atmospheric extreme events (extreme precipitation, atmospheric rivers, extratropical cyclones, heat waves, tropical cyclones, etc.), atmospheric and ocean numerical modeling, supercomputing, software development, open science and open software.
+ "I’m a Postdoctoral Scholar at Lawrence Berkeley National Laboratory ([LBNL](https://www.lbl.gov/)), at [CASCADE project]([https://www.yang-climate-group.org/](https://cascade.lbl.gov/)) and [Monsoons Extremes](https://boos.berkeley.edu/monsoonextremes/) at UC Berkeley. Among other things I am interested in the [North American Monsoon](https://www.climate.gov/news-features/blogs/enso/north-american-monsoon) and regionally refined Energy Exascale Earth System Model [E3SM](https://e3sm.org/) (my current research), [Atmospheric Rivers](https://www.noaa.gov/stories/what-are-atmospheric-rivers), atmospheric extreme events (extreme precipitation, atmospheric rivers, extratropical cyclones, heat waves, tropical cyclones, etc.), atmospheric and ocean numerical modeling, supercomputing, software development, open science and open software."
 \end{biography}
 
 \shortcv{
   interests=["Atmospheric Science", "Physical Oceanography", "Climate", "Fluid Dynamics", "Supercomputing", "Free software", "Python", "Numerical Modeling"],
   education=[
-    ("Ph.D. in Atmospheric Science", 2022, "University of California, Davis"),
+    ("Ph.D. in Atmospheric Science, 2022", "University of California, Davis"),
     ("M.S. in Physical Oceanography, 2015", "Ensenada Center for Scientific Research and Higher Education"),
     ("B.Sc. in Physics, 2012", "Universidad Nacional Autónoma de México")]
 }
