@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-    <loc>https://www.hectorindadiaz.com/news/2021/12-2021-agu/index.html</loc>
+    <loc>https://www.hectorindadiaz.com/index.html</loc>
     <lastmod>2023-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://www.hectorindadiaz.com/index.html</loc>
+    <loc>https://www.hectorindadiaz.com/news/2023/02-2023-coffee/index.html</loc>
+    <lastmod>2023-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://www.hectorindadiaz.com/old/2021/12-2021-agu/index.html</loc>
     <lastmod>2023-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -20,13 +26,13 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://www.hectorindadiaz.com/news/2022/06-2022-TropicalCyclonePotentialIntensity/index.html</loc>
+    <loc>https://www.hectorindadiaz.com/old/2022/06-2022-TropicalCyclonePotentialIntensity/index.html</loc>
     <lastmod>2023-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://www.hectorindadiaz.com/news/2022/08-2022-new-preprint/index.html</loc>
+    <loc>https://www.hectorindadiaz.com/old/2022/08-2022-new-preprint/index.html</loc>
     <lastmod>2023-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -38,13 +44,31 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://www.hectorindadiaz.com/old/2022/04-2022-continuing-student-fellowship/index.html</loc>
+    <lastmod>2023-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://www.hectorindadiaz.com/posts_en/2023/cuda_forcing_oceananigans/index.html</loc>
+    <lastmod>2023-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://www.hectorindadiaz.com/old/2021/12-2021-new-paper/index.html</loc>
+    <lastmod>2023-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://www.hectorindadiaz.com/posts_en/index.html</loc>
     <lastmod>2023-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://www.hectorindadiaz.com/news/2021/12-2021-new-paper/index.html</loc>
+    <loc>https://www.hectorindadiaz.com/news/2023/02-2023-new-preprint/index.html</loc>
     <lastmod>2023-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -56,7 +80,7 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://www.hectorindadiaz.com/posts/2022/costos_perdidos_phd/index.html</loc>
+    <loc>https://www.hectorindadiaz.com/posts_en/2023/test/index.html</loc>
     <lastmod>2023-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -68,25 +92,13 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://www.hectorindadiaz.com/posts/2022/cuda_forzamiento/index.html</loc>
+    <loc>https://www.hectorindadiaz.com/posts/2023/cuda_forzamiento/index.html</loc>
     <lastmod>2023-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://www.hectorindadiaz.com/posts_en/2022/cuda_forcing_oceananigans/index.html</loc>
-    <lastmod>2023-02-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://www.hectorindadiaz.com/posts_en/2022/sunken_costs_phd/index.html</loc>
-    <lastmod>2023-02-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://www.hectorindadiaz.com/news/2022/04-2022-continuing-student-fellowship/index.html</loc>
+    <loc>https://www.hectorindadiaz.com/posts/2023/test/index.html</loc>
     <lastmod>2023-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
