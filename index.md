@@ -28,12 +28,12 @@
 <!-- LEFT COLUMN -->
 @@col-12,col-lg-8
 
-\begin{biography}{
- I’m a Postdoctoral Scholar at Lawrence Berkeley National Laboratory ([LBNL](https://www.lbl.gov/)), at [CASCADE project]([https://www.yang-climate-group.org/](https://cascade.lbl.gov/)) and [Monsoons Extremes](https://boos.berkeley.edu/monsoonextremes/) at UC Berkeley. Among other things I am interested in the [North American Monsoon](https://www.climate.gov/news-features/blogs/enso/north-american-monsoon) and regionally refined Energy Exascale Earth System Model [E3SM](https://e3sm.org/) (my current research), [Atmospheric Rivers](https://www.noaa.gov/stories/what-are-atmospheric-rivers), atmospheric extreme events (extreme precipitation, atmospheric rivers, extratropical cyclones, heat waves, tropical cyclones, etc.), atmospheric and ocean numerical modeling, supercomputing, software development, open science and open software.}
+\begin{biography}{}
+ I’m a Postdoctoral Scholar at Lawrence Berkeley National Laboratory ([LBNL](https://www.lbl.gov/)), at [CASCADE project]([https://www.yang-climate-group.org/](https://cascade.lbl.gov/)) and [Monsoons Extremes](https://boos.berkeley.edu/monsoonextremes/) at UC Berkeley. Among other things I am interested in the [North American Monsoon](https://www.climate.gov/news-features/blogs/enso/north-american-monsoon) and regionally refined Energy Exascale Earth System Model [E3SM](https://e3sm.org/) (my current research), [Atmospheric Rivers](https://www.noaa.gov/stories/what-are-atmospheric-rivers), atmospheric extreme events (extreme precipitation, atmospheric rivers, extratropical cyclones, heat waves, tropical cyclones, etc.), atmospheric and ocean numerical modeling, supercomputing, software development, open science and open software.
 \end{biography}
 
 \shortcv{
-  interests=["Fluid Dynamics", "Tropical cyclones", "Free software", "Supercomputing", "Climate"],
+  interests=["Atmospheric Science", "Physical Oceanography", "Climate", "Fluid Dynamics", "Supercomputing", "Free software", "Python", "Numerical Modeling"],
   education=[
     ("Ph.D. in Atmospheric Science", 2022, "University of California, Davis"),
     ("M.S. in Physical Oceanography, 2015", "Ensenada Center for Scientific Research and Higher Education"),
