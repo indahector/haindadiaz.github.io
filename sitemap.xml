@@ -8,6 +8,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://www.hectorindadiaz.com/index.html</loc>
+    <lastmod>2023-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://www.hectorindadiaz.com/news/index.html</loc>
     <lastmod>2023-02-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -21,6 +27,12 @@
 </url>
 <url>
     <loc>https://www.hectorindadiaz.com/news/2022/08-2022-new-preprint/index.html</loc>
+    <lastmod>2023-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://www.hectorindadiaz.com/research/index.html</loc>
     <lastmod>2023-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
