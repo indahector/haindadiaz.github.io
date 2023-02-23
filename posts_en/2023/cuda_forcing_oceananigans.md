@@ -6,6 +6,8 @@ category = "code"
 tags = ["CUDA", "julia","convection"]
 +++
 
+Test post borrowed from argelramirezreyes.com/posts/2022/cuda_forzamiento/
+
 In this post I share my experience about how easy is it to add GPU-capable pieces of software to a fluid dynamics software in the Julia programming language with the help of CUDA.jl and Oceananigans.jl. All the code shown in this blog post can be found [here](https://github.com/aramirezreyes/RamirezReyes_ShallowWaterInFPlane/commit/8834855f91e7d76364f7e553a258ae4fc2daa08f)
 
 ![Tropical Cyclones in a Shallow Water model with a convective parameterization](/assets/img/tcs_shallow_water.png)

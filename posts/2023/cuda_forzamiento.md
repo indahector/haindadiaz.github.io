@@ -6,6 +6,7 @@ category = "code"
 tags = ["CUDA", "julia","conveccion"]
 +++
 
+Test post borrowed from https://www.argelramirezreyes.com/posts/2022/cuda_forzamiento/
 
 En esta entrada comparto mi experiencia sobre lo fácil que es extender las capacidades de Oceananigans.jl en el lenguaje de programación Julia con la ayuda de CUDA.jl y Oceananigans.jl. Todo el código mostrado en esta entrada del blog puede encontrarse [aquí](https://github.com/aramirezreyes/RamirezReyes_ShallowWaterInFPlane/commit/8834855f91e7d76364f7e553a258ae4fc2daa08f)
 

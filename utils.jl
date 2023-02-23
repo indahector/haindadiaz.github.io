@@ -66,12 +66,12 @@ end
 end
 
 # Short CV block with a column for interests and one for education
-@lx function shortcv(; interests=nothing, education=nothing)
+@lx function shortcv(; academic_interests=nothing, education=nothing, other_interests=nothing)
     io = IOBuffer()
     write(io, html("""<div class=row>"""))
-    if !isnothing(interests)
-        write(io, html("""<div class=col-md-5><h3>Interests</h3><ul class=ul-interests>"""))
-        for i in interests
+    if !isnothing(academic_interests)
+        write(io, html("""<div class=col-md-5><h3>Academic nterests</h3><ul class=ul-interests>"""))
+        for i in academic_interests
             write(io, html("""<li>$i</li>"""))
         end
         write(io, html("""</ul></div>"""))
@@ -87,6 +87,13 @@ end
                   </div>
                 </li>
                 """))
+        end
+        write(io, html("""</ul></div>"""))
+    end
+    if !isnothing(other_interests)
+        write(io, html("""<div class=col-md-5><h3>Other interests</h3><ul class=ul-interests>"""))
+        for i in other_interests
+            write(io, html("""<li>$i</li>"""))
         end
         write(io, html("""</ul></div>"""))
     end
