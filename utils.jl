@@ -429,7 +429,7 @@ function hfun_allposts_en()
 end
 
 function hfun_pub()
-    bib = bibtex_to_web("_assets/MyAuthoredPapers.bib")
+    bib = bibtex_to_web("_assets/MyAuthoredPapers_recent.bib")
     isempty(bib) && return ""
     io = IOBuffer()
     write(io,"""
