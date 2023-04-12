@@ -44,13 +44,13 @@ end
     end
     if !all(isempty, (cv, resume, email, twitter, gscholar, github, linkedin))
         write(io, html("<ul class=network-icon aria-hidden=true>"))
-        isempty(resume) || write(io, html("""<li><a href="$resume" target=_blank rel=noopener><i class="ai ai-cv big-icon"></i></a></li>"""))
-        isempty(cv) || write(io, html("""<li><a href="$resume" target=_blank rel=noopener><i class="ai ai-cv big-icon"></i></a></li>"""))
+        isempty(resume) || write(io, html("""<li><a href="$resume" target=_blank rel=noopener><img style="display:inline-block; width:40px;"" src="/assets/img/resume.png"></i></a></li>"""))
         isempty(email) || write(io, html("""<li><a href="mailto:$email" target=_blank rel=noopener><i class="fas fa-envelope big-icon"></i></a></li>"""))
         isempty(twitter) || write(io, html("""<li><a href="$twitter" target=_blank rel=noopener><i class="fab fa-twitter big-icon"></i></a></li>"""))
         isempty(gscholar) || write(io, html("""<li><a href="$gscholar" target=_blank rel=noopener><i class="fas fa-graduation-cap big-icon"></i></a></li>"""))
         isempty(github) || write(io, html("""<li><a href="$github" target=_blank rel=noopener><i class="fab fa-github big-icon"></i></a></li>"""))
         isempty(linkedin) || write(io, html("""<li><a href="$linkedin" target=_blank rel=noopener><i class="fab fa-linkedin big-icon"></i></a></li>"""))
+        isempty(cv) || write(io, html("""<li><a href="$resume" target=_blank rel=noopener><i class="ai ai-cv big-icon"></i></a></li>"""))
         write(io, html("</ul>"))
     end
     write(io, html("</div>"))
