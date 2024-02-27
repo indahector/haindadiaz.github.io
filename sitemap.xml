@@ -20,7 +20,19 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://www.hectorindadiaz.com/posts/2023/02-2023-coffee/index.html</loc>
+    <lastmod>2024-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://www.hectorindadiaz.com/old/2022/06-2022-TropicalCyclonePotentialIntensity/index.html</loc>
+    <lastmod>2024-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://www.hectorindadiaz.com/posts/2023/09-2023-expo/index.html</loc>
     <lastmod>2024-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -32,7 +44,31 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://www.hectorindadiaz.com/news/2024/02-2023-alan/index.html</loc>
+    <lastmod>2024-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://www.hectorindadiaz.com/posts/2023/02-2023-new-preprint/index.html</loc>
+    <lastmod>2024-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://www.hectorindadiaz.com/posts/2024/02-2024-expogdl/index.html</loc>
+    <lastmod>2024-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://www.hectorindadiaz.com/research/index.html</loc>
+    <lastmod>2024-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://www.hectorindadiaz.com/news/2023/09-2023-expo/index.html</loc>
     <lastmod>2024-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -62,13 +98,19 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://www.hectorindadiaz.com/news/2023/02-2023-new-preprint/index.html</loc>
+    <loc>https://www.hectorindadiaz.com/news/2024/02-2024-expogdl/index.html</loc>
     <lastmod>2024-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
     <loc>https://www.hectorindadiaz.com/courses/index.html</loc>
+    <lastmod>2024-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://www.hectorindadiaz.com/posts/2024/02-2023-alan/index.html</loc>
     <lastmod>2024-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -81,18 +123,6 @@
 </url>
 <url>
     <loc>https://www.hectorindadiaz.com/posts/index.html</loc>
-    <lastmod>2024-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://www.hectorindadiaz.com/posts/2023/cuda_forzamiento/index.html</loc>
-    <lastmod>2024-02-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://www.hectorindadiaz.com/posts/2023/test/index.html</loc>
     <lastmod>2024-02-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
