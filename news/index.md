@@ -1,6 +1,6 @@
-@def title = "Blog"
+@def title = "News"
 
-\begin{section}{name="Blog", class=""}
+\begin{section}{name="News", class=""}
 
 {{allposts}}
 

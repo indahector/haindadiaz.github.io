@@ -50,7 +50,7 @@ end
         isempty(gscholar) || write(io, html("""<li><a href="$gscholar" target=_blank rel=noopener><i class="fas fa-graduation-cap big-icon"></i></a></li>"""))
         isempty(github) || write(io, html("""<li><a href="$github" target=_blank rel=noopener><i class="fab fa-github big-icon"></i></a></li>"""))
         isempty(linkedin) || write(io, html("""<li><a href="$linkedin" target=_blank rel=noopener><i class="fab fa-linkedin big-icon"></i></a></li>"""))
-        isempty(cv) || write(io, html("""<li><a href="$resume" target=_blank rel=noopener><i class="ai ai-cv big-icon"></i></a></li>"""))
+        isempty(cv) || write(io, html("""<li><a href="$cv" target=_blank rel=noopener><i class="ai ai-cv big-icon"></i></a></li>"""))
         write(io, html("</ul>"))
     end
     write(io, html("</div>"))
@@ -100,6 +100,27 @@ end
     end
     write(io, html("""</div>""")) # end row
     return String(take!(io))
+end
+
+
+# skill featurette
+@lx function skillhr(name, hr=""; img="", fa="",
+                   imgstyle="display:inline-block; width:56px;",
+                   fastyle="")
+    illustration = ""
+    if !isempty(img)
+        illustration = """<img style="$imgstyle" src="$img">"""
+    elseif !isempty(fa)
+        illustration = """<i class="fas fa-$fa" style="$fastyle"></i>"""
+    end
+
+    return """
+        <div class="col-12 col-sm-4">
+          <div class=featurette-icon style="text-align:center;">
+          """ * illustration * """
+          </div>
+          <h3><a href=$hr>$name</a></h3>
+        </div>""" |> html
 end
 
 # skill featurette
@@ -429,16 +450,52 @@ function hfun_allposts_en()
 end
 
 function hfun_pub()
-    bib = bibtex_to_web("_assets/MyAuthoredPapers_recent.bib")
+    bib = import_bibtex("_assets/MyAuthoredPapers_recent.bib")
+    bib = export_web(sort_bibliography!(bib,:y))
     isempty(bib) && return ""
     io = IOBuffer()
     write(io,"""
         <div>
         <table style="font-size:1.0rem" class="table table-borderless">
         """)
-    for bibitem in bib
+    for bibitem in reverse(bib)
         title = replace(bibitem.title,"{"=>"")
         title = replace(title,"}"=>"")        
+        authors = bibitem.names
+        link = bibitem.link
+        year = bibitem.year
+        journal = bibitem.in
+        write(io, """
+            <tr>
+              </div>
+                <td style="vertical-align:middle;">
+                 <div class="article-metadata"><span class="article-date">$year </span>
+                 </td>
+                 <td>
+                    <p class="course">$title</p>
+                    <p style="font-size:0.90rem; margin-bottom:0.2rem;" class="institution">$authors</p>
+                    <p style="font-size:0.90rem; margin-bottom:0.2rem;" class="institution">$journal</p>
+                    <p style="font-size:0.90rem;" class="institution">link: <a href=$link>$link</a></p>
+                </td>
+            </tr>""")
+    end
+    write(io,"""</table>
+                </div>""")
+    return String(take!(io))
+end
+
+function hfun_allpub()
+    bib = import_bibtex("_assets/MyAuthoredPapers.bib")
+    bib = export_web(sort_bibliography!(bib,:y))
+    isempty(bib) && return ""
+    io = IOBuffer()
+    write(io,"""
+        <div>
+        <table style="font-size:1.0rem" class="table table-borderless">
+        """)
+    for bibitem in reverse(bib)
+        title = replace(bibitem.title,"{"=>"")
+        title = replace(title,"}"=>"")
         authors = bibitem.names
         link = bibitem.link
         year = bibitem.year
